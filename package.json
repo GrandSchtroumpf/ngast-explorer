@@ -1,0 +1,62 @@
+{
+	"name": "ngast-explorer",
+	"displayName": "Angular AST Explorer",
+	"description": "Analyze an Angular application",
+	"version": "0.0.1",
+	"publisher": "grandschtroumpf",
+	"repository": "",
+	"main": "./dist/main.js",
+	"engines": {
+		"vscode": "^1.34.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"configuration": {
+		"title": "Angular AST explorer"
+	},
+	"activationEvents": [
+		"onView:workspaceTree"
+	],
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "ng-tree",
+					"title": "Angular Tree",
+					"icon": "assets/ast.svg"
+				}
+			]
+		},
+		"views": {
+			"ng-tree": [
+				{
+					"id": "workspaceTree",
+					"name": "Workspace"
+				}
+			]
+		}
+	},
+
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint . --ext .ts",
+		"watch": "tsc -watch -p ./"
+	},
+	"dependencies": {
+		"@angular-devkit/core": "^10.1.2",
+		"@angular/compiler": "^10.1.2",
+		"@angular/compiler-cli": "^10.1.2",
+		"@angular/core": "^10.1.2",
+		"ngast": "0.5.0"
+	},
+	"devDependencies": {
+		"@types/node": "^12.12.0",
+		"@types/vscode": "^1.34.0",
+		"@typescript-eslint/eslint-plugin": "^3.0.2",
+		"@typescript-eslint/parser": "^3.0.2",
+		"eslint": "^7.1.0",
+		"typescript": "^4.0.2"
+	}
+}
